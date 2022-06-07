@@ -172,19 +172,8 @@ WriteResult({ "nInserted" : 1 })
 WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 > db.food.update({_id:2},{$push:{price:{grapes:80,mango:200,cherry:100}}})
 WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
-> 
-> 
-> 
-> 
-> 
-> db.createCollection("Customers");
-{
-	"ok" : 0,
-	"errmsg" : "a collection 'bhuvana.Customers' already exists",
-	"code" : 48,
-	"codeName" : "NamespaceExists"
-}
-db.Customers.insert({_custID:1,AcctBal:'100000',AcctType:"saving"});
+
+>db.Customers.insert({_custID:1,AcctBal:'100000',AcctType:"saving"});
 WriteResult({ "nInserted" : 1 })
 > db.Customers.aggregate({$group:{_id:"$custID",TotAccBal:{$sum:"$AccBal"}}});
 { "_id" : null, "TotAccBal" : 0 }
